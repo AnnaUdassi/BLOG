@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion Forum - Innovation Blog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Innovation Blog</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create-post.html">Create Post</a></li>
+                    <li><a href="forum.html" class="active">Discussion Forum</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="forum">
+            <div class="container">
+                <div class="forum-header">
+                    <h2>Discussion Forum</h2>
+                    <button class="btn btn-primary" id="new-topic-btn">Start New Topic</button>
+                </div>
+                
+                <div class="forum-categories">
+                    <div class="category-item">
+                        <h3>Technology Trends</h3>
+                        <p>Discuss the latest in tech innovation and emerging trends</p>
+                        <div class="category-stats">
+                            <span>32 Topics</span>
+                            <span>128 Posts</span>
+                        </div>
+                    </div>
+                    
+                    <div class="category-item">
+                        <h3>Artificial Intelligence</h3>
+                        <p>Conversations about AI, machine learning, and automation</p>
+                        <div class="category-stats">
+                            <span>45 Topics</span>
+                            <span>211 Posts</span>
+                        </div>
+                    </div>
+                    
+                    <div class="category-item">
+                        <h3>Sustainable Technology</h3>
+                        <p>Discussions on green tech and sustainability initiatives</p>
+                        <div class="category-stats">
+                            <span>18 Topics</span>
+                            <span>74 Posts</span>
+                        </div>
+                    </div>
+                    
+                    <div class="category-item">
+                        <h3>Blockchain & Crypto</h3>
+                        <p>Forum for blockchain technologies and applications</p>
+                        <div class="category-stats">
+                            <span>29 Topics</span>
+                            <span>156 Posts</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recent-discussions">
+                    <h3>Recent Discussions</h3>
+                    
+                    <div class="discussion-list">
+                        <div class="discussion-item">
+                            <div class="discussion-avatar">
+                                <img src="https://via.placeholder.com/40" alt="User avatar">
+                            </div>
+                            <div class="discussion-content">
+                                <h4><a href="#">The impact of quantum computing on encryption</a></h4>
+                                <p class="discussion-meta">Started by <strong>quantum_enthusiast</strong> - 2 days ago - 12 replies</p>
+                            </div>
+                        </div>
+                        
+                        <div class="discussion-item">
+                            <div class="discussion-avatar">
+                                <img src="https://via.placeholder.com/40" alt="User avatar">
+                            </div>
+                            <div class="discussion-content">
+                                <h4><a href="#">Can renewable energy fully power data centers?</a></h4>
+                                <p class="discussion-meta">Started by <strong>green_tech_advocate</strong> - 3 days ago - 8 replies</p>
+                            </div>
+                        </div>
+                        
+                        <div class="discussion-item">
+                            <div class="discussion-avatar">
+                                <img src="https://via.placeholder.com/40" alt="User avatar">
+                            </div>
+                            <div class="discussion-content">
+                                <h4><a href="#">Ethics of AI in healthcare decision-making</a></h4>
+                                <p class="discussion-meta">Started by <strong>medical_innovator</strong> - 5 days ago - 24 replies</p>
+                            </div>
+                        </div>
+                        
+                        <div class="discussion-item">
+                            <div class="discussion-avatar">
+                                <img src="https://via.placeholder.com/40" alt="User avatar">
+                            </div>
+                            <div class="discussion-content">
+                                <h4><a href="#">The future of decentralized finance (DeFi)</a></h4>
+                                <p class="discussion-meta">Started by <strong>blockchain_developer</strong> - 1 week ago - 16 replies</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Innovation Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="modal" id="new-topic-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Start New Topic</h3>
+            <form id="new-topic-form">
+                <div class="form-group">
+                    <label for="topic-title">Title</label>
+                    <input type="text" id="topic-title" name="title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="topic-category">Category</label>
+                    <select id="topic-category" name="category" required>
+                        <option value="">Select a category</option>
+                        <option value="technology">Technology Trends</option>
+                        <option value="ai">Artificial Intelligence</option>
+                        <option value="sustainability">Sustainable Technology</option>
+                        <option value="blockchain">Blockchain & Crypto</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="topic-content">Content</label>
+                    <textarea id="topic-content" name="content" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Create Topic</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Simple modal functionality
+        const modal = document.getElementById('new-topic-modal');
+        const btn = document.getElementById('new-topic-btn');
+        const span = document.getElementsByClassName('close')[0];
+        
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+        
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        
+        // Form submission handler
+        document.getElementById('new-topic-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // This would typically send data to a server
+            alert('Topic created successfully!');
+            modal.style.display = "none";
+        });
+    </script>
+</body>
+</html>
